@@ -53,6 +53,7 @@ parentContainer.addEventListener('click', (e) => {
     }
 
     if (e.target.className == 'cart-btn-bottom' || e.target.className == 'cart-bottom' || e.target.className == 'cart-holder') {
+        getCartDetails();
         document.querySelector('#cart').style = "display:block;";
     }
 
@@ -112,8 +113,30 @@ function addToCart(productId){
         }
 
     })
-    .catch(()=>{
-        notifyUser(resizeBy.data.message)
+    .catch((errMsg)=>{
+        comsole.log(errMsg);
+        notifyUser(errMsg)
+    })
+
+}
+
+function getCartDetails(){
+    axios.get('http://localhost:3000/cart')
+    .then(response=>{
+        if(response.ststus === 200){
+            response.data.products.forEach(product =>{
+                const cartContainer = document.getElementById('cart');
+                cartContainer.innerHTML +=`<li>${product.title} - ${product.carItem.quatity} -${product.price}`
+            })
+            document.querySelector('#cart').style = "display:b;ock;"
+        }else{
+            throw new Error('something went wrong')
+        }
+        //console.log(response)
+
+    })
+    .catch(err =>{
+        notifyUser(error)
     })
 
 }
