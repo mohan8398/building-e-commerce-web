@@ -132,24 +132,30 @@ exports.postCart = (req, res, next) => {
     });
 };
 
-exports.postCartDeleteProduct = (req, res, next) => {
-  const prodId = req.body.productId;
-  Product.findById(prodId, product => {
-    Cart.deleteProduct(prodId, product.price);
-    res.redirect('/cart');
-  });
-};
+
 
 exports.getOrders = (req, res, next) => {
-  res.render('shop/orders', {
-    path: '/orders',
-    pageTitle: 'Your Orders'
-  });
+ try {
+        const result = [];
+        const orders = await req.user.getOrders();
+        await Promise.all(orders.map(async (order) => {
+            const obj = {};
+            obj.orderId = order.id;
+            const o = await Order.findByPk(order.id);
+            const products = await o.getProducts();
+            const p = [];
+            products.map(product => {
+                p.push(product.dataValues);
+            })
+            obj.productDetail = p;
+            result.push(obj);
+            console.log(result);
+
+        }))
+        res.status(200).json({ data: result });
+    } catch (err) {
+        res.status(500).json({ err: err })
+    }
 };
 
-exports.getCheckout = (req, res, next) => {
-  res.render('shop/checkout', {
-    path: '/checkout',
-    pageTitle: 'Checkout'
-  });
-};
+
