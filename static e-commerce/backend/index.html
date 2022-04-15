@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,23 +8,32 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <div id="EcommerceContainer">
         <header>
             <ul class='header'>
-               
                 <li><a href="./home.html">HOME</a></li>
                 <li><a href="./index.html">STORE</a></li>
                 <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./orderHistory.html">ORDERS</a></li>
                 <a href="#cart" class="cart-holder">cart<span class='cart-number'>0</span></a>
             </ul>
             <h1>The Generics</h1>
         </header>
-        <section id="products" class="container">
-            <h2>Products</h2>
-            
+        <section id="music" class="container">
+            <h2>MUSIC</h2>
+            <div id="music-content">
+
+            </div>
+
+            <section id="pagination">
+
+            </section>
+
         </section>
-        
+
+        </section>
         <section id="cart" , class="container">
             <h2>CART</h2>
             <button class="cancel">X</button>
@@ -33,7 +43,7 @@
                 <span class="cart-quantity cart-column">QUANTITY</span>
             </div>
             <div class="cart-items">
-               
+
             </div>
 
             <div class="cart-total">
@@ -44,9 +54,8 @@
             </div>
             <button class="purchase-btn" type="button">PURCHASE</button>
         </section>
-        <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
+        <!-- <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button> -->
     </div>
-   
     <!-- For Toggle notification -->
     <div id="container"></div>
     <footer>
@@ -65,7 +74,8 @@
             </ul>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
 </body>
+
 </html>
