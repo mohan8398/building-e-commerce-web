@@ -1,0 +1,93 @@
+body{   
+    align-items: center; 
+    justify-content: center;
+
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+}
+
+nav{
+    background-color: black;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+
+#title-container{
+    font-size: 35px;
+    padding-bottom: 10px;
+    text-align: center;
+    height: 150px;
+    color: white;
+    font-family: sans-serif;
+    background-color: grey;
+}
+
+#music{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#merch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#add-to-cart-btn{
+    margin-left: 140px;
+    background-color: blue;
+    color: white;
+}
+
+#See-the-cart-btn{
+    background-color: grey;
+    border-radius: 5px;
+    border-color: lightblue;
+    color: lightblue;
+    margin-left: 950px;
+    height: 50px;
+    width: 100px;
+}
+
+img{
+    height: 300px;
+    width: 300px;
+}
+
+#product{
+    margin-right: 100px;
+}
+
+#bottom-generic{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    /* margin-left: 100px; */
+    width: 100%;
+}
+
+#bottom-container{
+    margin-top: 20px;
+    display:flex;
+    background-color: rgb(44, 138, 170);
+}
+
+#bottom{
+    margin-top: 30px;
+    width: 300px;
+}
+
+#bottom-img{
+    
+    margin-right: 30px;
+    height: 40px;
+    width: 40px;
+} 
