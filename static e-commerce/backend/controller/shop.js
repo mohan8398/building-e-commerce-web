@@ -1,19 +1,44 @@
 const Product = require('../models/product');
 const Cart = require('../models/cart');
+const { Op } = require("sequelize");
+
 
 exports.getProducts = (req, res, next) => {
-  Product.findAll()
-    .then(products => {
-      res.json({products,success:true})
-      //res.render('shop/product-list', {
-      //  prods: products,
-      //  pageTitle: 'All Products',
-      //  path: '/products'
-      //});
+   let page = !req.query.page ? 1 : parseInt(req.query.page);
+
+    let totalItems;
+    let start = (page * 2) - 1;
+    let end = page * 2;
+
+    // console.log("inside getProducts controller...");
+    Product.findAll().then(products => {
+        totalItems = products.length;
+    }).then(() => {
+        Product.findAll({
+            where: {
+                id: {
+                    [Op.between]: [start, end],
+                }
+            }
+
+        
+        }).then(products => {
+            console.log('end total items >>> ', end, totalItems);
+            
+            res.json({
+                "products": products, "pagination": {
+                    currentPage: page,
+                    nextPage: page + 1,
+                    previousPage: page - 1,
+                    hasPreviousPage: page > 1,
+                    hasNextPage: end < totalItems,
+                }
+            });
+        }).catch(err => {
+            console.log(err);
+        })
     })
-    .catch(err => {
-      console.log(err);
-    });
+ 
 };
 
 exports.getProduct = (req, res, next) => {
