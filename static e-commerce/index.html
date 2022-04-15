@@ -1,150 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+const parentContainer = document.getElementById('EcommerceContainer');
+const cart_items = document.querySelector('#cart .cart-items');
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Store</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-</head>
 
-<body>
-    <div id="EcommerceContainer">
-        <header>
-            <ul class='header'>
-                <li><a href="">HOME</a></li>
-                <li><a href="">STORE</a></li>
-                <li><a href="">ABOUT</a></li>
-                <a href="#cart" class="cart-holder">cart<span class='cart-number'>0</span></a>
-            </ul>
-            <h1>The Generics</h1>
-        </header>
-        <section id="music" class="container">
-            <h2>MUSIC</h2>
-            <div id="music-content">
-                <div id="album1">
-                    <h3>Album1</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>12.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div id="album2">
-                    <h3>Album2</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>14.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div id="album3">
-                    <h3>Album3</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>9.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div id="album4">
-                    <h3>Album4</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>19.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="merch" class="container">
-            <h2>MERCH</h2>
-            <div id="merch-content">
-                <div id="t-shirt">
-                    <h3>T-Shirt</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Shirt.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>19.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div id="coffee-cup">
-                    <h3>Coffee-Cup</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Cofee.png"
-                            alt="">
-                    </div>
-                    <div class="prod-details">
-                        <span>$<span>6.99</span></span>
-                        <button class="shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-    </div>
-    </section>
-    <section id="cart" , class="container">
-        <h2>CART</h2>
-        <button class="cancel">X</button>
-        <div class="cart-row cart-header">
-            <span class="cart-item cart-column">ITEM</span>
-            <span class="cart-price cart-column">PRICE</span>
-            <span class="cart-quantity cart-column">QUANTITY</span>
-        </div>
-        <div class="cart-items">
-            <span class="cart-item cart-column">
-                <img class="cart-img" src="" alt="">
-                <span>T-Shirt</span>
-            </span>
-            <span class="cart-price cart-column">$19.99</span>
-            <span class="cart-quantity cart-column">
-                <input type="text">
-                <button>REMOVE</button>
-            </span>
-            </span>
-        </div>
-        <div class="cart-total">
-            <span>
-                <span class="total-title"><strong>Total</strong></span>
-                $<span id="total-value">0</span>
-            </span>
-        </div>
-        <button class="purchase-btn" type="button">PURCHASE</button>
-    </section>
-    <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
-    <!-- for Toggle notification -->
-    <div id="container"></div>
-    <footer>
-        <div class="footer-title">
-            The Generics
-        </div>
-        <div class="footer-icons">
-            <ul>
-                <li><a href=""><img
-                            src="https://prasadyash2411.github.io/ecom-website/img/6260efc8fc9a9002669d2f4ad9956cc0.jpg"
-                            alt=""></a></li>
-                <li><a href=""><img src="https://prasadyash2411.github.io/ecom-website/img/Spotify%20Logo.png"
-                            alt=""></a></li>
-                <li><a href=""><img src="https://prasadyash2411.github.io/ecom-website/img/Facebook%20Logo.png"
-                            alt=""></a></li>
-            </ul>
-        </div>
-    </footer>
-    </div>
-</body>
+parentContainer.addEventListener('click', (e) => {
 
-</html>
+    console.log('class name >>> ', e.target.className);
+
+    if (e.target.className == 'shop-item-button') {
+        const id = e.target.parentNode.parentNode.id;
+        const name = document.querySelector(`#${id} h3`).innerText;
+        const img_src = document.querySelector(`#${id} img`).src;
+        const price = e.target.parentNode.firstElementChild.firstElementChild.innerText;
+        let total_cart_price = document.querySelector('#total-value').innerText;
+
+        if (document.querySelector(`#in-cart-${id}`)) {
+            alert('This item is already added to the cart');
+            return;
+        }
+
+        document.querySelector('.cart-number').innerText = parseInt(document.querySelector('.cart-number').innerText) + 1
+
+        const cart_item = document.createElement('div');
+        cart_item.classList.add('cart-row');
+        cart_item.setAttribute('id', `in-cart-${id}`);
+        total_cart_price = parseFloat(total_cart_price) + parseFloat(price);
+        total_cart_price = total_cart_price.toFixed(2);
+        document.querySelector('#total-value').innerText = `${total_cart_price}`;
+        cart_item.innerHTML = `
+        <span class='cart-item cart-column'>
+        <img class='cart-img' src="${img_src}" alt="">
+        <span>${name}</span>
+        </span>
+        <span class='cart-price cart-column'>${price}</span>
+        <span class='cart-quantity cart-column'>
+        <input type="text" value="1">
+        <button>REMOVE</button>
+        </span>`
+
+        cart_items.appendChild(cart_item);
+        const container = document.getElementById('container');
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.innerHTML = `<h4>Your Product : <span>${name}</span> is added to the cart</h4>`;
+        container.appendChild(notification);
+        setTimeout(() => {
+            notification.remove();
+        }, 2500);
+
+        // console.log('cart item >>> ',cart_item);
+    }
+
+    if (e.target.className == 'cart-btn-bottom' || e.target.className == 'cart-bottom' || e.target.className == 'cart-holder') {
+        document.querySelector('#cart').style = "display:block;";
+    }
+
+    if (e.target.className == 'cancel') {
+        document.querySelector('#cart').style = "display:none;";
+    }
+
+    if (e.target.className=='purchase-btn'){
+        if (parseInt(document.querySelector('.cart-number').innerText) === 0){
+            alert('Cart is Empty , Add some products to purchase !');
+            return
+        }
+        alert('Thanks for your purchase')
+        cart_items.innerHTML = ""
+        document.querySelector('.cart-number').innerText = 0
+        document.querySelector('#total-value').innerText = `0`;
+    }
+
+    if (e.target.innerText=='REMOVE'){
+        let total_cart_price = document.querySelector('#total-value').innerText;
+        total_cart_price = parseFloat(total_cart_price).toFixed(2) - parseFloat(document.querySelector(`#${e.target.parentNode.parentNode.id} .cart-price`).innerText).toFixed(2) ;
+        document.querySelector('.cart-number').innerText = parseInt(document.querySelector('.cart-number').innerText)-1
+        document.querySelector('#total-value').innerText = `${total_cart_price.toFixed(2)}`
+        e.target.parentNode.parentNode.remove()
+    }
+
+});
